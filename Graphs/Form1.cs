@@ -44,6 +44,8 @@ namespace Graphs
                 series1.Points.AddXY(i, i * i);
                 series2.Points.AddXY(i, i * i);
             }
+            chart1.ChartAreas[0].AxisX.Title = "time / s";
+            chart1.ChartAreas[0].AxisY.Title = "distance / m";
         }
     }
 }
