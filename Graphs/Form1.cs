@@ -17,6 +17,16 @@ namespace Graphs
         {
             InitializeComponent();
 
+            List<Point> squares = new List<Point>();
+            for (int i=0; i<11; i++)
+            {
+                squares.Add(new Point(i, i * i));
+            }
+            drawGraph(squares, "x", "x squared");
+        }
+
+        void drawGraph(List<Point>points, string XAxisTitle="x", string YAxisTitle = "y")
+        {
             chart1.Series.Clear();
             chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
             Series series1 = new Series
@@ -39,13 +49,13 @@ namespace Graphs
             };
             chart1.Series.Add(series1);
             chart1.Series.Add(series2);
-            for (int i = 0; i < 11; i++)
+            foreach (Point p in points)
             {
-                series1.Points.AddXY(i, i * i);
-                series2.Points.AddXY(i, i * i);
+                series1.Points.AddXY(p.X, p.Y);
+                series2.Points.AddXY(p.X, p.Y);
             }
-            chart1.ChartAreas[0].AxisX.Title = "time / s";
-            chart1.ChartAreas[0].AxisY.Title = "distance / m";
+            chart1.ChartAreas[0].AxisX.Title = XAxisTitle;
+            chart1.ChartAreas[0].AxisY.Title = YAxisTitle;
         }
     }
 }
