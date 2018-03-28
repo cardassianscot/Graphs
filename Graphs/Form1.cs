@@ -25,7 +25,7 @@ namespace Graphs
                 Color = Color.Blue,
                 IsVisibleInLegend = false,
                 IsXValueIndexed = true,
-                ChartType = SeriesChartType.Point,
+                ChartType = SeriesChartType.Line,
                 BorderWidth = 2
             };
             chart1.Series.Add(series1);
