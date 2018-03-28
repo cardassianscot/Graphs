@@ -21,20 +21,29 @@ namespace Graphs
             chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
             Series series1 = new Series
             {
-                Name = "Points",
+                Name = "Line",
                 Color = Color.Blue,
                 IsVisibleInLegend = false,
                 IsXValueIndexed = true,
                 ChartType = SeriesChartType.Spline,
                 BorderWidth = 2
             };
+            Series series2 = new Series
+            {
+                Name = "Points",
+                Color = Color.Red,
+                IsVisibleInLegend = false,
+                IsXValueIndexed = true,
+                ChartType = SeriesChartType.Point,
+                BorderWidth = 2
+            };
             chart1.Series.Add(series1);
-            series1.Points.AddXY(0, 0);
-            series1.Points.AddXY(2, 4);
-            series1.Points.AddXY(4, 16);
-            series1.Points.AddXY(6, 36);
-            series1.Points.AddXY(8, 64);
-            series1.Points.AddXY(10, 100);
+            chart1.Series.Add(series2);
+            for (int i = 0; i < 11; i++)
+            {
+                series1.Points.AddXY(i, i * i);
+                series2.Points.AddXY(i, i * i);
+            }
         }
     }
 }
